@@ -6,11 +6,6 @@ import VueResource from 'vue-router'
 // Components
 import NotesList from "./components/Notes/List.vue"
 
-
-// Require
-require("./assets/css/bootstrap.css");
-require("./assets/css/bootstrap-theme.css");
-
 // Vue use
 Vue.use(Router);
 Vue.use(VueResource);
