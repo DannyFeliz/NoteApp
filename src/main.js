@@ -6,6 +6,8 @@ import services from "../config/services.js"
 
 // Components
 import NotesList from "./components/Notes/List.vue"
+import AddNote from "./components/Notes/Add.vue"
+
 // Vue use
 Vue.use(Router);
 Vue.use(VueResource);
@@ -19,9 +21,13 @@ require('es6-promise').polyfill();
 
 // Routes
 router.map({
-  '/home': {
+  '/': {
     name: 'home',
     component: NotesList
+  },
+  '/add': {
+    name: 'add',
+    component: AddNote
   }
 });
 
