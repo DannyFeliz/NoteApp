@@ -2,10 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import Router from 'vue-router'
 import VueResource from 'vue-router'
+import services from "../config/services.js"
 
 // Components
 import NotesList from "./components/Notes/List.vue"
-
 // Vue use
 Vue.use(Router);
 Vue.use(VueResource);
@@ -14,9 +14,12 @@ Vue.use(VueResource);
 export default Vue;
 export let router = new Router;
 
+// Require
+require('es6-promise').polyfill();
+
 // Routes
 router.map({
-  '/': {
+  '/home': {
     name: 'home',
     component: NotesList
   }
