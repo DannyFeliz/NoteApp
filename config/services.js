@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import ENV from "./env.js";
-
 Vue.use(VueResource);
 
 if (!Object.keys(ENV).length) throw new Error ("ENV is empty");
