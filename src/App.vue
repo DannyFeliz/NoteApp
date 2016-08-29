@@ -3,8 +3,9 @@
     <div class="panel-heading">
       <nav>
         <ul class="list-inline">
-          <li><a >Sign out</a></li>
-          <li class="">Hi, Danny!</li>
+          <li><a v-link="{ name: 'Home' }">List</a></li>
+          <li><a v-link="{ name: 'AddNote' }">Add</a></li>
+          <!--<li class="">Hi, Danny!</li>-->
         </ul>
       </nav>
     </div>

@@ -22,11 +22,11 @@ require('es6-promise').polyfill();
 // Routes
 router.map({
   '/': {
-    name: 'home',
+    name: 'Home',
     component: NotesList
   },
   '/add': {
-    name: 'add',
+    name: 'AddNote',
     component: AddNote
   }
 });

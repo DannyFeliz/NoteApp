@@ -47,9 +47,7 @@
         note.append("color", this.color);
 
         store.createNote(note).then(response => {
-          console.log("allrigth");
         });
-        console.log("Create method");
       }
     }
   }
