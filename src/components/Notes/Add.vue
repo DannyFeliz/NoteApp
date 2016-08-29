@@ -15,6 +15,17 @@
       </div>
 
       <div class="form-group">
+        <label for="body" class="form-group">Color</label>
+        <select name="title" id="color" class="form-control" v-model="color">
+          <option v-for="noteColor in colorsList" :value="noteColor"
+                  :selected="noteColor == color ? noteColor : ''">
+                  {{ noteColor | capitalize}}
+          </option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
         <button class="btn btn-primary">Create note</button>
       </div>
 
@@ -28,12 +39,13 @@
   export default{
     data(){
       return {
-        title: null,
-        body: null,
+        title: '',
+        body: '',
         user_id: 1,
         type: 'note',
         status: 'status',
-        color: 'white'
+        color: 'white',
+        colorsList: ["red", "green", "orange", "yellow", "gray", "white", "blue", "teal"]
       }
     },
     methods: {
@@ -46,7 +58,8 @@
         note.append("status", this.status);
         note.append("color", this.color);
 
-        store.createNote(note).then(response => {
+        store.create(note).then(response => {
+          console.log(response);
         });
       }
     }
