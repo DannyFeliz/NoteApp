@@ -3,12 +3,28 @@
     <h4><strong>{{note.title}}</strong></h4>
     <hr>
     <p>{{note.body}}</p>
-    <a href="#" @click="remove(note.note_id)">Delete</a>
+
+    <div class="note__date-container text-right ">
+      <span class="badge"> {{ note.created_at | hummanDate }}</span>
+    </div>
+    <hr>
+
+    <div class="text-right">
+
+      <a href="javascript:void(0)" v-link="{ name: 'EditNote', params: { id: note.note_id }}">
+        <li class='glyphicon glyphicon-pencil'></li>
+      </a>
+      <a href="javascript:void(0)" @click="remove(note.note_id)">
+        <li class="glyphicon glyphicon-trash"></li>
+      </a>
+    </div>
   </div>
 </template>
 
 <script>
   import store from "../../stores/notes";
+  import moment from "moment";
+
   export default{
     name: "note-item",
     props: {
@@ -19,9 +35,14 @@
         msg: 'hello vue'
       }
     },
+    filters: {
+      "hummanDate": function(date) {
+        return moment(date).fromNow();
+      }
+    },
     methods: {
       remove(id) {
-        store.removeNote(id).then(response => {
+        store.remove(id).then(response => {
           console.info(response);
         });
       }
@@ -34,6 +55,10 @@
   .notes-item {
 
   }
+
+  /*
+    Colors
+  */
 
   .color-red {
     background-color: #ff8a80;
