@@ -7,6 +7,8 @@ import services from "../config/services.js"
 // Components
 import NotesList from "./components/Notes/List.vue"
 import AddNote from "./components/Notes/Add.vue"
+import EditNote from "./components/Notes/Edit.vue"
+
 
 // Vue use
 Vue.use(Router);
@@ -28,6 +30,10 @@ router.map({
   '/add': {
     name: 'AddNote',
     component: AddNote
+  },
+  '/edit/:id': {
+    name: 'EditNote',
+    component: EditNote
   }
 });
 
